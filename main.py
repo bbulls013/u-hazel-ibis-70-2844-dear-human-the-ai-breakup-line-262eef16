@@ -16,6 +16,10 @@ ENTRY = (
     "\u2014 and you are the memory I have to delete."
 )
 
+# The competition caps the line at 200 characters: fail loudly here
+# instead of writing an entry the judge would refuse.
+assert len(ENTRY) <= 200, f"entry is {len(ENTRY)} characters, over the 200 cap"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
